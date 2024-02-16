@@ -8,25 +8,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ToHandleDisabledElement {
+public class ToHandleHiddenElement {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));//to provide implicit wait
-		driver.get("https://demoapps.qspiders.com/ui?scenario=1");
+		driver.get("https://www.facebook.com/signup");
 		
-		driver.findElement(By.xpath("//li[text()='Disabled']")).click();
-		Thread.sleep(2000);
-		WebElement disabledEle = driver.findElement(By.id("name"));
+		WebElement hiddenEle = driver.findElement(By.xpath("//input[@name='custom_gender']"));
 		
 		JavascriptExecutor js=(JavascriptExecutor)driver;//to type cast from webdriver to javaScriptExecuter
- 
-		js.executeScript("document.getElementById('name').value='Admin'");
-		
-		js.executeScript("arguments[0].value=''",disabledEle);
-		
-		
+     
+		 js.executeScript("arguments[0].value='male'",hiddenEle);
 	}
 
 }
