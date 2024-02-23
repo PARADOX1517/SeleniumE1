@@ -5,30 +5,38 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ToHandleConfirmationPopup {
+public class ToHandleNotificationPopupUsingRobotClass {
 
 	public static void main(String[] args) throws InterruptedException, AWTException {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));//to provide implicit wait
-		driver.get("https://omayo.blogspot.com/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		
-		driver.findElement(By.id("confirm")).click();
-		
-		Thread.sleep(1000);
+		driver.get("https://www.easemytrip.com/");
+		Thread.sleep(3000);
 		
 		Robot robot = new Robot();
+		
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(1000);
+		
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(1000);
+		
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(1000);
+		
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		
 
-		//Alert confirmationAlert = driver.switchTo().alert();
-		//Thread.sleep(2000);
-		//confirmationAlert.accept();
 	}
 
 }
