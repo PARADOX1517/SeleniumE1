@@ -38,11 +38,25 @@ public class LoginPage {
 		return actimindLink;
 	}
 	
-	public void validLoginMethod(String username,String password)
+	public void validLoginMethod(String username,String password) throws InterruptedException
 	{
 		usnTB.sendKeys(username);
+		Thread.sleep(2000);
 		pwdTB.sendKeys(password);
+		Thread.sleep(2000);
 		loginButton.click();
+	}
+	
+	public void invalidLoginMethod(String username,String password) throws InterruptedException
+	{
+		usnTB.sendKeys(username);
+		Thread.sleep(2000);
+		pwdTB.sendKeys(password);
+		Thread.sleep(2000);
+		loginButton.click();
+		Thread.sleep(2000);
+		usnTB.clear();
+
 	}
 
 }
