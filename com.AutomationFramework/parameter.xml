@@ -8,7 +8,7 @@
 	  <parameter name="Vpassword" value="manager"></parameter>
     <classes>
       <class name="testNGExecution.Parameterization"/>
-    </classes>
+    </classes>0
   </test> <!-- Test -->
   
   <test thread-count="5" name="FirefoxTest">
